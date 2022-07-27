@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 import TestFirestore from "./components/TestFirestore";
+import InputPanel from "./components/inputPanel/InputPanel";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       hello world
       <TestFirestore />
+      <InputPanel />
     </div>
   );
 }

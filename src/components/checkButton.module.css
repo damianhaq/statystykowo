@@ -1,0 +1,9 @@
+.checked {
+  background-color: aqua;
+  text-decoration: underline;
+}
+
+.unchecked {
+  background-color: none;
+  text-decoration: none;
+}
