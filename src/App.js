@@ -1,7 +1,7 @@
 import "./App.css";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-
+import "./globalStyles.css";
 import TestFirestore from "./components/TestFirestore";
 import InputPanel from "./components/inputPanel/InputPanel";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -26,7 +26,7 @@ export const db = getFirestore(app, {
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       hello world
       <TestFirestore />
       <InputPanel />
