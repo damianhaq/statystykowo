@@ -8,3 +8,21 @@ h2 {
   text-align: center;
   margin-bottom: 5px;
 }
+
+button {
+  width: 50%;
+  height: 80px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: #e1e1e1;
+  border: none;
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+button:active {
+  background-color: #c4c4c4;
+}
