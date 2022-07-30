@@ -4,6 +4,8 @@ import { getFirestore } from "firebase/firestore";
 import "./globalStyles.css";
 import TestFirestore from "./components/TestFirestore";
 import InputPanel from "./components/inputPanel/InputPanel";
+import Navbar from "./components/navbar/Navbar";
+import { useState } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,11 +27,27 @@ export const db = getFirestore(app, {
 });
 
 function App() {
+  const [nav, setNav] = useState(1);
+
+  function changeNav(num) {
+    setNav(num);
+  }
+
+  function Route() {
+    switch (nav) {
+      case 1:
+        return <InputPanel />;
+      case 2:
+        return <TestFirestore />;
+      default:
+        <TestFirestore />;
+    }
+  }
+
   return (
     <div className="app">
-      hello world
-      <TestFirestore />
-      <InputPanel />
+      <Navbar nav={nav} changeNav={changeNav} />
+      <Route />
     </div>
   );
 }

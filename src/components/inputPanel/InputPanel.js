@@ -67,7 +67,9 @@ const InputPanel = () => {
       <Item inputData={inputData.name} addDataToState={addDataToState} data={data.name} inputHeight={30} />
       <Item inputData={inputData.description} addDataToState={addDataToState} data={data.description} inputHeight={70} />
       {showWriteInfo.length > 0 && <p className={styles.writeInfo}>{showWriteInfo}</p>}
-      <button onClick={handleClick}>Dodaj</button>
+      <button className={styles.button} onClick={handleClick}>
+        Dodaj
+      </button>
     </div>
   );
 };

@@ -9,7 +9,7 @@ h2 {
   margin-bottom: 5px;
 }
 
-button {
+.button {
   width: 50%;
   height: 80px;
   justify-content: center;
@@ -23,7 +23,7 @@ button {
   margin-left: auto;
 }
 
-button:active {
+.button:active {
   background-color: #c4c4c4;
 }
 
