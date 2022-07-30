@@ -1,11 +1,12 @@
 .checked,
 .unchecked {
-  width: 50%;
+  width: calc(50% - 2px);
   height: 80px;
   justify-content: center;
   display: flex;
   align-items: center;
   border-radius: 20px;
+  box-sizing: border-box;
 }
 
 .checked {
@@ -16,4 +17,5 @@
 .unchecked {
   background-color: none;
   text-decoration: none;
+  border: 1px solid #e1e1e1;
 }
