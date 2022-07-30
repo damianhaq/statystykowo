@@ -1,39 +1,69 @@
 import { addData } from "../../functions/addData";
 import Item from "./inputPanelComponent/Item";
 import styles from "./inputPanel.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const data = {
   repeat: {
+    type: "repeat",
     name: "Powtażalność",
     pickNames: ["Codziennie", "Co Tydzień", "Co Miesiąc", "Jednorazowa"],
   },
   type: {
+    type: "type",
     name: "Typ",
     pickNames: ["Skala od-do", "Tak / Nie", "Tekst", "Liczba"],
   },
   name: {
+    type: "name",
     name: "Podaj nazwę",
     pickNames: "input",
   },
   description: {
+    type: "description",
     name: "Opis",
     pickNames: "input",
   },
 };
 
+const tempData = {
+  repeat: "Codziennie",
+  type: "Liczba",
+  name: "TestNazwa",
+  description: "Opis bla lorem laskdfhnal aflh akfh akf haklfh afhajkldfgbqljfbh ajklfhl",
+};
+
 const InputPanel = () => {
-  const [inputData, setInputData] = useState({});
-  // addData();
+  const [inputData, setInputData] = useState({ name: "", description: "" });
+
+  function addDataToState(data) {
+    // data need to be "key: value"
+    setInputData((prev) => {
+      return {
+        ...prev,
+        ...data,
+      };
+    });
+  }
+
+  // DEV
+  useEffect(() => {
+    console.log(inputData);
+  }, [inputData]);
+
+  function handleClick() {
+    // addData(tempData)
+  }
+
   return (
     <div className={styles.inputPanel}>
       <h2>Dodaj</h2>
-      <Item name={data.repeat.name} data={data.repeat.pickNames} />
-      <Item name={data.type.name} data={data.type.pickNames} />
+      <Item inputData={inputData} addDataToState={addDataToState} data={data.repeat} />
+      <Item inputData={inputData} addDataToState={addDataToState} data={data.type} />
 
-      <Item name={data.name.name} data={data.name.pickNames} inputHeight={30} />
-      <Item name={data.description.name} data={data.description.pickNames} inputHeight={70} />
-      <button>Dodaj</button>
+      <Item inputData={inputData.name} addDataToState={addDataToState} data={data.name} inputHeight={30} />
+      <Item inputData={inputData.description} addDataToState={addDataToState} data={data.description} inputHeight={70} />
+      <button onClick={handleClick}>Dodaj</button>
     </div>
   );
 };
