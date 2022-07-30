@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./navbar.module.css";
 
-const navPick = ["Dodaj", "Statystykowo"];
+const navPick = ["Dodaj", "Statystykowo", "coś innego"];
 
 const Navbar = ({ nav, changeNav }) => {
   return (
