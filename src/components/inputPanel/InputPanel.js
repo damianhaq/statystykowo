@@ -35,6 +35,7 @@ const tempData = {
 
 const InputPanel = () => {
   const [inputData, setInputData] = useState({ name: "", description: "" });
+  const [showWriteInfo, setShowWriteInfo] = useState("");
 
   function addDataToState(data) {
     // data need to be "key: value"
@@ -52,7 +53,9 @@ const InputPanel = () => {
   }, [inputData]);
 
   function handleClick() {
-    // addData(tempData)
+    addData(inputData).then((value) => {
+      setShowWriteInfo(value);
+    });
   }
 
   return (
@@ -63,6 +66,7 @@ const InputPanel = () => {
 
       <Item inputData={inputData.name} addDataToState={addDataToState} data={data.name} inputHeight={30} />
       <Item inputData={inputData.description} addDataToState={addDataToState} data={data.description} inputHeight={70} />
+      {showWriteInfo.length > 0 && <p className={styles.writeInfo}>{showWriteInfo}</p>}
       <button onClick={handleClick}>Dodaj</button>
     </div>
   );

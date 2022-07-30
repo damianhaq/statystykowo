@@ -26,3 +26,10 @@ button {
 button:active {
   background-color: #c4c4c4;
 }
+
+.writeInfo {
+  border-radius: 20px;
+  background-color: #c4c4c4;
+  padding: 10px;
+  margin-bottom: 10px;
+}
