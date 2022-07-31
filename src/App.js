@@ -30,20 +30,31 @@ export const db = getFirestore(app, {
 function App() {
   const [nav, setNav] = useState(1);
   const [events, setEvents] = useState([]);
+  const [done, setDone] = useState([]);
 
   useEffect(() => {
     realtimeUpdate();
   }, []);
 
   function realtimeUpdate() {
+    // for events
     const q = query(collection(db, "event"));
     onSnapshot(q, (querySnapshot) => {
       const events = [];
       querySnapshot.forEach((doc) => {
         events.push({ id: doc.id, event: doc.data() });
       });
-      console.log("events (fetchData)", events);
       setEvents(events);
+    });
+
+    // for done
+    const q2 = query(collection(db, "done"));
+    onSnapshot(q2, (querySnapshot) => {
+      const events = [];
+      querySnapshot.forEach((doc) => {
+        events.push({ id: doc.id, done: doc.data() });
+      });
+      setDone(events);
     });
   }
 
@@ -54,7 +65,7 @@ function App() {
   function Route() {
     switch (nav) {
       case 1:
-        return <Stats />;
+        return <Stats done={done} events={events} />;
       case 2:
         return <InputPanel />;
       case 3:

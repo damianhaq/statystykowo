@@ -18,7 +18,6 @@ const ItemTemplates = ({ data }) => {
         Typ: <span className={styles.spanItemTemplate}>{data.event.type}</span>
       </p>
       <div className={styles.buttonsWrapper}>
-        {/* <button className={styles.button}>Edytuj</button> */}
         <button onClick={handleClickDelete} className={styles.button}>
           Usuń
         </button>

@@ -53,7 +53,7 @@ const InputPanel = () => {
   // }, [inputData]);
 
   function handleClick() {
-    addData(inputData).then((value) => {
+    addData("event", inputData).then((value) => {
       setShowWriteInfo(value);
     });
   }

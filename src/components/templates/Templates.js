@@ -3,15 +3,6 @@ import styles from "./templates.module.css";
 import ItemTemplates from "./templatesComponents/ItemTemplates";
 
 const Templates = ({ events }) => {
-  useEffect(() => {
-    // fetchData().then((data) => {
-    //   console.log(data);
-    //   setEvents(data);
-    // });
-    // fetchData();
-    // console.log("fetchData (Templates/useeffect)", fetchData());
-  }, []);
-
   return (
     <div className={styles.templates}>
       <h2>Szablony</h2>

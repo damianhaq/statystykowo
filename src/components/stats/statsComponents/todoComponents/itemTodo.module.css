@@ -1,0 +1,33 @@
+.itemTodo {
+  background-color: #c4c4c4;
+  border-radius: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.buttonsYNWrapper {
+  display: flex;
+  gap: 2px;
+}
+.buttons10Wrapper {
+  display: flex;
+  gap: 2px;
+}
+
+.inputNumber {
+  border: none;
+  height: 1.5rem;
+  display: block;
+  margin: 0 auto;
+  background-color: #e1e1e1;
+}
+
+.description {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.textarea {
+  margin: 0 auto;
+  display: block;
+}

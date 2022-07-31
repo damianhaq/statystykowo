@@ -1,9 +1,9 @@
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../App";
 
-export async function addData(data) {
+export async function addData(coll, data) {
   try {
-    const docRef = await addDoc(collection(db, "event"), data);
+    const docRef = await addDoc(collection(db, coll), data);
     console.log("Document written with ID: ", docRef.id);
     return "Zapisano";
   } catch (e) {
