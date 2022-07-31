@@ -1,17 +1,28 @@
 import React from "react";
+import { deleteTemplate } from "../../../functions/deleteTemplate";
 import styles from "./itemTemplates.module.css";
 
 const ItemTemplates = ({ data }) => {
+  function handleClickDelete() {
+    deleteTemplate("event", data.id);
+  }
+
   return (
     <div className={styles.itemTemplates}>
-      <h3>{data.value.name}</h3>
-      <p>{data.value.description}</p>
+      <h3>{data.event.name}</h3>
+      <p>{data.event.description}</p>
       <p>
-        Powtarzalność: <span>{data.value.repeat}</span>
+        Powtarzalność: <span className={styles.spanItemTemplate}>{data.event.repeat}</span>
       </p>
       <p>
-        Typ: <span>{data.value.type}</span>
+        Typ: <span className={styles.spanItemTemplate}>{data.event.type}</span>
       </p>
+      <div className={styles.buttonsWrapper}>
+        {/* <button className={styles.button}>Edytuj</button> */}
+        <button onClick={handleClickDelete} className={styles.button}>
+          Usuń
+        </button>
+      </div>
     </div>
   );
 };

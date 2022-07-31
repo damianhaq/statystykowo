@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { fetchData } from "../../functions/fetchData";
 import styles from "./templates.module.css";
 import ItemTemplates from "./templatesComponents/ItemTemplates";
 
-const Templates = () => {
-  const [events, setEvents] = useState([]);
-
+const Templates = ({ events }) => {
   useEffect(() => {
-    fetchData().then((data) => {
-      console.log(data);
-      setEvents(data);
-    });
+    // fetchData().then((data) => {
+    //   console.log(data);
+    //   setEvents(data);
+    // });
+    // fetchData();
+    // console.log("fetchData (Templates/useeffect)", fetchData());
   }, []);
 
   return (
     <div className={styles.templates}>
       <h2>Szablony</h2>
-      {events.map((el) => (
-        <ItemTemplates key={el.id} data={el} />
+      {events.map((el, index) => (
+        <ItemTemplates key={index} data={el} />
       ))}
     </div>
   );

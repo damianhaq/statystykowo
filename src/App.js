@@ -1,11 +1,10 @@
 import "./App.css";
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, onSnapshot } from "firebase/firestore";
 import "./globalStyles.css";
-import TestFirestore from "./components/TestFirestore";
 import InputPanel from "./components/inputPanel/InputPanel";
 import Navbar from "./components/navbar/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Stats from "./components/stats/Stats";
 import Templates from "./components/templates/Templates";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -30,6 +29,23 @@ export const db = getFirestore(app, {
 
 function App() {
   const [nav, setNav] = useState(1);
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    realtimeUpdate();
+  }, []);
+
+  function realtimeUpdate() {
+    const q = query(collection(db, "event"));
+    onSnapshot(q, (querySnapshot) => {
+      const events = [];
+      querySnapshot.forEach((doc) => {
+        events.push({ id: doc.id, event: doc.data() });
+      });
+      console.log("events (fetchData)", events);
+      setEvents(events);
+    });
+  }
 
   function changeNav(num) {
     setNav(num);
@@ -42,9 +58,9 @@ function App() {
       case 2:
         return <InputPanel />;
       case 3:
-        return <Templates />;
+        return <Templates events={events} />;
       default:
-        <TestFirestore />;
+        <Stats />;
     }
   }
 
