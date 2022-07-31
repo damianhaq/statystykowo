@@ -36,6 +36,10 @@ function App() {
     realtimeUpdate();
   }, []);
 
+  useEffect(() => {
+    console.log("events", events);
+  }, [events]);
+
   function realtimeUpdate() {
     // for events
     const q = query(collection(db, "event"));

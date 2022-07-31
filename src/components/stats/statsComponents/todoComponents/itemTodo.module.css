@@ -31,3 +31,17 @@
   margin: 0 auto;
   display: block;
 }
+
+.button {
+  margin-top: 10px;
+  margin-left: auto;
+  width: 40%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: #c4c4c4;
+  border: 1px solid #e1e1e1;
+}

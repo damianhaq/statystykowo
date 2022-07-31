@@ -12,7 +12,7 @@ const data = {
   type: {
     type: "type",
     name: "Typ",
-    pickNames: ["Skala od-do", "Tak / Nie", "Tekst", "Liczba"],
+    pickNames: ["Skala od-do", "Tak / Nie", "Tekst", "Liczba", "Lista"],
   },
   name: {
     type: "name",

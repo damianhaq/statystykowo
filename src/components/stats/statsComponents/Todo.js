@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./todo.module.css";
 import ItemTodo from "./todoComponents/ItemTodo";
 
 const Todo = ({ done, events }) => {
-  function handleClick() {}
   return (
     <div className={styles.todo}>
       <h2>Do wypełnienia</h2>
       <div>
         {events.map((el) => (
-          <ItemTodo key={el.id} event={el.event} />
+          <ItemTodo key={el.id} event={el} />
         ))}
-        <button className={styles.button} onClick={handleClick}>
+        {/* <button className={styles.button} onClick={handleClick}>
           Zapisz
-        </button>
+        </button> */}
       </div>
     </div>
   );
