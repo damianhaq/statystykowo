@@ -6,6 +6,8 @@ import TestFirestore from "./components/TestFirestore";
 import InputPanel from "./components/inputPanel/InputPanel";
 import Navbar from "./components/navbar/Navbar";
 import { useState } from "react";
+import Stats from "./components/stats/Stats";
+import Templates from "./components/templates/Templates";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -36,9 +38,11 @@ function App() {
   function Route() {
     switch (nav) {
       case 1:
-        return <InputPanel />;
+        return <Stats />;
       case 2:
-        return <TestFirestore />;
+        return <InputPanel />;
+      case 3:
+        return <Templates />;
       default:
         <TestFirestore />;
     }

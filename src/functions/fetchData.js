@@ -3,9 +3,9 @@ import { db } from "../App";
 
 export async function fetchData() {
   let temp = [];
-  const querySnapshot = await getDocs(collection(db, "testowaKolekcja"));
+  const querySnapshot = await getDocs(collection(db, "event"));
   querySnapshot.forEach((doc) => {
-    const test = doc.data().testowyField;
+    const test = doc.data();
     temp = [...temp, { id: doc.id, value: test }];
   });
   // return promise
