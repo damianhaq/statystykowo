@@ -39,6 +39,9 @@ function App() {
   useEffect(() => {
     console.log("events", events);
   }, [events]);
+  useEffect(() => {
+    console.log("done", done);
+  }, [done]);
 
   function realtimeUpdate() {
     // for events
