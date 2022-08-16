@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Timestamp } from "firebase/firestore";
 import CheckButton from "../../../CheckButton";
 import styles from "./itemTodoRender.module.css";
+import { addData } from "../../../../functions/addData";
 
 const checkButtonsData = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 const checkButtonsDataYN = ["Tak", "Nie"];
@@ -19,26 +20,20 @@ const ItemTodoRender = ({ event }) => {
   const [isCheckedYN, setIsCheckedYN] = useState(0);
   const [isChecked10, setIsChecked10] = useState(0);
 
-  const value = "";
-
-  useEffect(() => {
-    console.log(data.value);
-  }, [data]);
-
   function onClickHandlerYN(el, index) {
     if (el == "Tak") {
       setData({
         date: Timestamp.fromDate(new Date()),
         idTemplate: event.id,
         type: event.event.type,
-        value: true,
+        value: "Tak",
       });
     } else if (el == "Nie") {
       setData({
         date: Timestamp.fromDate(new Date()),
         idTemplate: event.id,
         type: event.event.type,
-        value: false,
+        value: "Nie",
       });
     }
 
@@ -46,7 +41,6 @@ const ItemTodoRender = ({ event }) => {
   }
 
   function onClickHandler10(el, index) {
-    console.log("onclick");
     setData({
       date: Timestamp.fromDate(new Date()),
       idTemplate: event.id,
@@ -58,6 +52,7 @@ const ItemTodoRender = ({ event }) => {
 
   function onClickHandlerSave() {
     console.log(data);
+    addData("done", data);
   }
 
   switch (event.event.type) {
