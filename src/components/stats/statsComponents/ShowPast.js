@@ -2,7 +2,12 @@ import React from "react";
 
 const ShowPast = ({ done, events }) => {
   function findTemplate(id) {
-    return <p>{events.filter((event) => event.id == id)[0].event.name}</p>;
+    return (
+      <div>
+        <p>{events.filter((event) => event.id == id)[0].event.name}</p>
+        <p>{events.filter((event) => event.id == id)[0].event.description}</p>
+      </div>
+    );
   }
 
   return (
@@ -10,8 +15,9 @@ const ShowPast = ({ done, events }) => {
       ShowPast
       {done.map((el) => (
         <div key={el.id}>
-          <h3>{findTemplate(el.done.idTemplate)}</h3>
-          <p>{el.done.value}</p>
+          <div>{findTemplate(el.done.idTemplate)}</div>
+          <p>value: {el.done.value}</p>
+          <br />
         </div>
       ))}
     </div>

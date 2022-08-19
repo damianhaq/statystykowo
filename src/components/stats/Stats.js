@@ -7,8 +7,6 @@ const Stats = ({ done, events }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
-    console.log("FilteredEvents: ", filteredEvents);
-
     // filtered events -----
     let tempArr = [...events];
     done.forEach((el) => {
