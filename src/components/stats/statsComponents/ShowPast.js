@@ -17,6 +17,7 @@ const ShowPast = ({ done, events }) => {
         <div key={el.id}>
           <div>{findTemplate(el.done.idTemplate)}</div>
           <p>value: {el.done.value}</p>
+          <p>data: {new Date(el.done.date.seconds * 1000).toDateString()}</p>
           <br />
         </div>
       ))}

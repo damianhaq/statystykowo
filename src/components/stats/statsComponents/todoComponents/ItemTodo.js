@@ -7,7 +7,7 @@ const ItemTodo = ({ event }) => {
   return (
     <div className={styles.itemTodo}>
       <h3>{event.event.name}</h3>
-      <p className={styles.description}>{event.description}</p>
+      <p className={styles.description}>{event.event.description}</p>
       {/* <Render event={event} /> */}
       <ItemTodoRender event={event} />
     </div>
