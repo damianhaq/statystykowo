@@ -134,6 +134,27 @@ const ItemTodoRender = ({ event }) => {
           </button> */}
         </>
       );
+
+    case "Godzina":
+      return (
+        <>
+          <input
+            value={data.value}
+            onChange={(ev) =>
+              setData((prev) => ({
+                ...prev,
+                value: ev.target.value,
+              }))
+            }
+            className={styles.inputTime}
+            type="time"
+          />
+          <input onChange={(ev) => setData((prev) => ({ ...prev, date: ev.target.value }))} value={data.date} className={styles.dataPicker} type="datetime-local" />
+          <button onClick={onClickHandlerSave} className={styles.button}>
+            Zapisz
+          </button>
+        </>
+      );
     default:
       break;
   }
