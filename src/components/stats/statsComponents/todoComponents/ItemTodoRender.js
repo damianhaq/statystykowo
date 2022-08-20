@@ -21,9 +21,9 @@ const ItemTodoRender = ({ event }) => {
   const [isCheckedYN, setIsCheckedYN] = useState(0);
   const [isChecked10, setIsChecked10] = useState(0);
 
-  useEffect(() => {
-    console.log("data", data);
-  }, []);
+  // useEffect(() => {
+  //   console.log("data", data);
+  // }, []);
 
   function onClickHandlerYN(el, index) {
     if (el == "Tak") {

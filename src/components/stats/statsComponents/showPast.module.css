@@ -1,0 +1,24 @@
+.showPast {
+  background-color: #8c8c8c;
+  border-radius: 30px;
+  padding: 10px 5px;
+  margin-top: 10px;
+}
+
+.item {
+  background-color: #c4c4c4;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.value {
+  background-color: #e1e1e1;
+  border-radius: 4px;
+  padding: 3px;
+}

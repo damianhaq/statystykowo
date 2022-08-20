@@ -30,15 +30,11 @@ const Stats = ({ done, events }) => {
   function filterArr(arr, id, timestamp) {
     const date = new Date(timestamp * 1000);
     let farr = [];
-    console.log(arr, id);
     for (let i = 0; i < arr.length; i++) {
-      console.log(`arr[${i}]`);
       if (arr[i].id != id || !isToday(date)) {
         farr.push(arr[i]);
-        console.log(`push arr[${i}]`);
       }
     }
-    console.log("farr", farr);
     return farr;
   }
 
