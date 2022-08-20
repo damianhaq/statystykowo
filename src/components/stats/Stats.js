@@ -10,19 +10,35 @@ const Stats = ({ done, events }) => {
     // filtered events -----
     let tempArr = [...events];
     done.forEach((el) => {
-      tempArr = filterArr(tempArr, el.done.idTemplate);
+      tempArr = filterArr(tempArr, el.done.idTemplate, el.done.date.seconds);
     });
     setFilteredEvents(tempArr);
     // --------------------
   }, []);
 
-  function filterArr(arr, condition) {
+  function isToday(date) {
+    const today = new Date();
+
+    // console.log("isToday", today.toDateString(), date.toDateString());
+    if (today.toDateString() === date.toDateString()) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function filterArr(arr, id, timestamp) {
+    const date = new Date(timestamp * 1000);
     let farr = [];
+    console.log(arr, id);
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i].id != condition) {
+      console.log(`arr[${i}]`);
+      if (arr[i].id != id || !isToday(date)) {
         farr.push(arr[i]);
+        console.log(`push arr[${i}]`);
       }
     }
+    console.log("farr", farr);
     return farr;
   }
 
