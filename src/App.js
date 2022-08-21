@@ -1,6 +1,6 @@
 import "./App.css";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, onSnapshot } from "firebase/firestore";
+import { getFirestore, collection, orderBy, getDocs, query, onSnapshot } from "firebase/firestore";
 import "./globalStyles.css";
 import InputPanel from "./components/inputPanel/InputPanel";
 import Navbar from "./components/navbar/Navbar";
@@ -55,7 +55,7 @@ function App() {
     });
 
     // for done
-    const q2 = query(collection(db, "done"));
+    const q2 = query(collection(db, "done"), orderBy("date", "desc"));
     onSnapshot(q2, (querySnapshot) => {
       const events = [];
       querySnapshot.forEach((doc) => {
