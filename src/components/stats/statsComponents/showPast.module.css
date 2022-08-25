@@ -22,3 +22,15 @@
   border-radius: 4px;
   padding: 3px;
 }
+
+.monthWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.monthWrapper button {
+  background-color: unset;
+  border: unset;
+  text-decoration: underline;
+}

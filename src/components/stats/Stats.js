@@ -18,12 +18,9 @@ const Stats = ({ done, events }) => {
 
   function isToday(date) {
     const today = new Date();
-
-    // console.log("isToday", today.toDateString(), date.toDateString());
     if (today.toDateString() === date.toDateString()) {
       return true;
     }
-
     return false;
   }
 

@@ -76,7 +76,7 @@ function App() {
       case 2:
         return <InputPanel />;
       case 3:
-        return <Templates events={events} />;
+        return <Templates done={done} events={events} />;
       default:
         <Stats />;
     }

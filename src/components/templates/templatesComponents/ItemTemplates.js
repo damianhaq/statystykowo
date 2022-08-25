@@ -3,19 +3,19 @@ import { deleteTemplate } from "../../../functions/deleteTemplate";
 import { editTemplate } from "../../../functions/editTemplate";
 import styles from "./itemTemplates.module.css";
 
-const ItemTemplates = ({ data }) => {
-  const [dataForEdit, setDataForEdit] = useState(data.event);
+const ItemTemplates = ({ template, done }) => {
+  const [dataForEdit, setDataForEdit] = useState(template.event);
 
   useEffect(() => {
     console.log(dataForEdit);
   }, [dataForEdit]);
 
   function handleClickDelete() {
-    deleteTemplate("event", data.id);
+    deleteTemplate("event", template.id, done);
   }
 
   function handleClickEdit() {
-    editTemplate("event", data.id, dataForEdit);
+    editTemplate("event", template.id, dataForEdit);
   }
 
   return (
@@ -29,10 +29,10 @@ const ItemTemplates = ({ data }) => {
       </p>
 
       <p>
-        Powtarzalność: <span className={styles.spanItemTemplate}>{data.event.repeat}</span>
+        Powtarzalność: <span className={styles.spanItemTemplate}>{template.event.repeat}</span>
       </p>
       <p>
-        Typ: <span className={styles.spanItemTemplate}>{data.event.type}</span>
+        Typ: <span className={styles.spanItemTemplate}>{template.event.type}</span>
       </p>
       <div className={styles.buttonsWrapper}>
         <button onClick={handleClickEdit} className={styles.button}>
