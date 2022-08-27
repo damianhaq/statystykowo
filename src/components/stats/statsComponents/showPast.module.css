@@ -29,8 +29,6 @@
   padding: 5px;
 }
 
-.monthWrapper button {
-  background-color: unset;
-  border: unset;
-  text-decoration: underline;
+.monthWrapper img {
+  height: 1rem;
 }
