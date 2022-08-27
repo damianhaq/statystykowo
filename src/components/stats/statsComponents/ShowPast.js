@@ -11,9 +11,8 @@ const ShowPast = ({ done, events }) => {
 
   useEffect(() => {
     // Get only current/picked month from "done"
-    const tempArr = done.filter((el) => new Date(el.done.date.seconds * 1000).getMonth() == pickMonth.month);
+    const tempArr = done.filter((el) => new Date(el.done.date.seconds * 1000).getMonth() == pickMonth.month); // (January gives 0) thats why now its 7
     setDoneFilteredByMonth(tempArr);
-    console.log(pickMonth);
   }, []);
 
   return (

@@ -6,9 +6,9 @@ import styles from "./itemTemplates.module.css";
 const ItemTemplates = ({ template, done }) => {
   const [dataForEdit, setDataForEdit] = useState(template.event);
 
-  useEffect(() => {
-    console.log(dataForEdit);
-  }, [dataForEdit]);
+  // useEffect(() => {
+  //   console.log(dataForEdit);
+  // }, [dataForEdit]);
 
   function handleClickDelete() {
     deleteTemplate("event", template.id, done);

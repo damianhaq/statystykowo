@@ -7,7 +7,7 @@ const data = {
   repeat: {
     type: "repeat",
     name: "Powtażalność",
-    pickNames: ["Codziennie", "Co Tydzień", "Co Miesiąc", "Jednorazowa"],
+    pickNames: ["Codziennie", "Jednorazowa"],
   },
   type: {
     type: "type",
@@ -48,9 +48,9 @@ const InputPanel = () => {
   }
 
   // DEV
-  useEffect(() => {
-    console.log(inputData);
-  }, [inputData]);
+  // useEffect(() => {
+  //   console.log(inputData);
+  // }, [inputData]);
 
   function handleClick() {
     addData("event", inputData).then((value) => {

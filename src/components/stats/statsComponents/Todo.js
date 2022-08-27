@@ -5,7 +5,7 @@ import ItemTodo from "./todoComponents/ItemTodo";
 const Todo = ({ events }) => {
   return (
     <div className={styles.todo}>
-      <h2>Do wypełnienia</h2>
+      <h2>Codzienne</h2>
       <div>
         {events.map((el) => (
           <ItemTodo key={el.id} event={el} />
