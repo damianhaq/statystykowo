@@ -5,12 +5,14 @@ import styles from "./showPast.module.css";
 
 import angleLeft from "../../../icons/angle-left-solid.svg";
 import angleRight from "../../../icons/angle-right-solid.svg";
+import ShowPastItem from "./showPastComponent/ShowPastItem";
 
 const months = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
 
 const ShowPast = ({ done, events }) => {
   const [doneFilteredByMonth, setDoneFilteredByMonth] = useState([]);
   const [pickMonth, setPickMonth] = useState(new Date().getMonth());
+  // TODO: pick month like below to include year
   // const [pickMonth, setPickMonth] = useState({ month: new Date().getMonth(), year: new Date().getFullYear() });
 
   useEffect(() => {
@@ -30,12 +32,7 @@ const ShowPast = ({ done, events }) => {
         <img src={angleRight} onClick={() => setPickMonth((prev) => prev + 1)}></img>
       </div>
       {doneFilteredByMonth.map((el) => (
-        <div className={styles.item} key={el.id}>
-          <p className={styles.name}>{events.filter((event) => event.id == el.done.idTemplate)[0].event.name}</p>
-          {/* <p>{events.filter((event) => event.id == el.done.idTemplate)[0].event.description}</p> */}
-          <p className={styles.value}>{el.done.value}</p>
-          <p>data: {new Date(el.done.date.seconds * 1000).toLocaleString().slice(0, 17)}</p>
-        </div>
+        <ShowPastItem key={el.id} el={el} events={events} />
       ))}
     </div>
   );
