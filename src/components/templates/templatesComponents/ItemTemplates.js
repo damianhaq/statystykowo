@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { deleteTemplate } from "../../../functions/deleteTemplate";
-import { editTemplate } from "../../../functions/editTemplate";
+import { editDocument } from "../../../functions/editDocument";
 import styles from "./itemTemplates.module.css";
 
 const ItemTemplates = ({ template, done }) => {
@@ -15,7 +15,7 @@ const ItemTemplates = ({ template, done }) => {
   }
 
   function handleClickEdit() {
-    editTemplate("event", template.id, dataForEdit);
+    editDocument("event", template.id, dataForEdit);
   }
 
   return (

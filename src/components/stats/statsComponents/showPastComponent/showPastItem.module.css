@@ -15,3 +15,23 @@
   border-radius: 4px;
   padding: 3px;
 }
+
+.buttonsWrapper {
+  margin: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.button {
+  width: 40%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: #c4c4c4;
+  border: 1px solid #e1e1e1;
+}
