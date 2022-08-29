@@ -3,10 +3,15 @@
   border-radius: 20px;
   padding: 5px 10px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.item > p:last-of-type {
+  margin: 7px 0;
 }
 
 .item input {
-  border: 1px solid black;
+  border: 1px solid #8c8c8c;
   border-radius: 4px;
   padding: 3px;
   margin: 5px 0;
@@ -24,16 +29,47 @@
 }
 
 .buttonsWrapper {
-  margin: 10px;
-  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 5px;
+}
+
+.buttonsWrapperDisable {
+  overflow: hidden;
+  height: 0;
   display: flex;
   justify-content: flex-end;
   gap: 10px;
 }
 
+.showOptions {
+  height: 1rem;
+  width: 1rem;
+  padding: 4px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: inline-block;
+  border: 2px solid #e1e1e1;
+  border-radius: 100px;
+}
+.showOptionsExpanded {
+  height: 1rem;
+  width: 1rem;
+  padding: 4px;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  display: inline-block;
+  border: 2px solid #e1e1e1;
+  border-radius: 100px;
+  transform: scaleY(-1);
+}
+
 .button {
-  width: 40%;
-  height: 50px;
+  width: 30%;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
