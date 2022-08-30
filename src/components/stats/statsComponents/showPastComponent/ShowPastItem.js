@@ -32,7 +32,9 @@ const ShowPastItem = ({ el, events }) => {
         {isEditMode && <input type={"text"} value={value} onChange={(ev) => setValue(ev.target.value)} />}
         <p>data: {new Date(el.done.date.seconds * 1000).toLocaleString().slice(0, 17)}</p>
         <img onClick={showButton} src={arrowDownIcon} className={!isShowButtons ? styles.showOptions : styles.showOptionsExpanded}></img>
+
         <div className={isShowButtons ? styles.buttonsWrapper : styles.buttonsWrapperDisable}>
+          <button className={styles.button}>Szczegóły</button>
           <button onClick={handleClickEdit} className={styles.button}>
             {isEditMode ? "Zapisz" : "Edytuj"}
           </button>
