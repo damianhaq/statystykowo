@@ -6,6 +6,7 @@ const Disposable = ({ events }) => {
   return (
     <div className={styles.todo}>
       <h2>Jednorazowe</h2>
+
       {events.map((el) => (
         <ItemTodo key={el.id} event={el} />
       ))}
