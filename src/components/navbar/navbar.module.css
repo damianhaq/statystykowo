@@ -5,6 +5,7 @@
   justify-content: space-around;
   margin-bottom: 20px;
   gap: 3px;
+  z-index: 9999;
 }
 
 .button {

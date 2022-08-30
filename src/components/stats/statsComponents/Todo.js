@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import styles from "./todo.module.css";
 import ItemTodo from "./todoComponents/ItemTodo";
 
