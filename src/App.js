@@ -55,7 +55,7 @@ function App() {
     });
 
     // for done
-    const q2 = query(collection(db, "done"), orderBy("date", "desc"));
+    const q2 = query(collection(db, "done"), orderBy("date", "asc"));
     onSnapshot(q2, (querySnapshot) => {
       const events = [];
       querySnapshot.forEach((doc) => {

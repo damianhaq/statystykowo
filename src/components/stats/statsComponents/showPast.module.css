@@ -14,3 +14,19 @@
 .monthWrapper img {
   height: 1rem;
 }
+
+.calendar {
+  background-color: #c4c4c4;
+  border-radius: 20px;
+}
+
+.daysWrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.day {
+  border: 1px solid black;
+  height: 35px;
+}
