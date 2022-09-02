@@ -8,7 +8,7 @@ import angleRight from "../../../icons/angle-right-solid.svg";
 import ShowPastItem from "./showPastComponent/ShowPastItem";
 
 const months = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
-const weeks = [];
+const weeks = ["pon", "wto", "śro", "czw", "pią", "sob", "nie"];
 
 const ShowPast = ({ done, events }) => {
   const [doneFilteredByMonth, setDoneFilteredByMonth] = useState([]);
@@ -54,15 +54,29 @@ const ShowPast = ({ done, events }) => {
           <h3>{months[pickMonth]}</h3>
           <img src={angleRight} onClick={() => setPickMonth((prev) => prev + 1)}></img>
         </div>
+        <div className={styles.weeksWrapper}>
+          {weeks.map((el) => (
+            <p className={styles.week}>{el}</p>
+          ))}
+        </div>
         <div className={styles.daysWrapper}>
           {/* <p>{doneFilteredByMonth[0][0].id}</p> */}
           {doneFilteredByMonth[0] &&
             doneFilteredByMonth[0][0] &&
             doneFilteredByMonth.map((day, index) => (
-              // new Date(day[0].done.date.seconds * 1000).getDay()
-              <div style={{ gridColumnStart: new Date(day[0].done.date.seconds * 1000).getDay() }} key={index} className={styles.day}>
-                {/* {day.length} */}
-                {new Date(day[0].done.date.seconds * 1000).getDate()}
+              // , gridRowStart: Math.ceil(new Date(day[0].done.date.seconds * 1000).getDate() / 7)
+              <div
+                style={{
+                  gridColumnStart: new Date(day[0].done.date.seconds * 1000).getDay() === 0 ? 7 : new Date(day[0].done.date.seconds * 1000).getDay(),
+                  gridRowStart: Math.ceil(new Date(day[0].done.date.seconds * 1000).getDate() / 7),
+                }}
+                key={index}
+                className={styles.day}
+              >
+                <p className={styles.dayNumber}>{new Date(day[0].done.date.seconds * 1000).getDate()}</p>
+                {/* <p style={{ fontSize: 10 }}>{(new Date(day[0].done.date.seconds * 1000).getDate() / 7).toFixed(1)}</p>
+                <p style={{ fontSize: 10 }}>{new Date(day[0].done.date.seconds * 1000).getDay() === 0 ? 7 : new Date(day[0].done.date.seconds * 1000).getDay()}</p> */}
+                <p className={styles.doneNumber}>{day.length}</p>
               </div>
             ))}
         </div>

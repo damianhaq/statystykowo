@@ -21,7 +21,10 @@
 }
 
 .daysWrapper {
+  padding: 5px;
   display: grid;
+  column-gap: 3px;
+  row-gap: 3px;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
 }
@@ -29,4 +32,29 @@
 .day {
   border: 1px solid black;
   height: 35px;
+  position: relative;
+}
+
+.dayNumber {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: grey;
+}
+
+.doneNumber {
+  font-weight: 800;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.weeksWrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.week {
+  text-align: center;
 }
