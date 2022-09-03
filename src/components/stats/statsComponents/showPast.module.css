@@ -29,16 +29,24 @@
   grid-template-rows: repeat(6, 1fr);
 }
 
-.day {
-  border: 1px solid black;
-  height: 35px;
+.day,
+.daySelected {
+  border: 1px solid rgb(83, 83, 83);
+  height: 40px;
   position: relative;
+  box-sizing: border-box;
+}
+
+.daySelected {
+  border: 2px solid black;
 }
 
 .dayNumber {
   font-size: 0.7rem;
   font-weight: 800;
   color: grey;
+  padding-left: 1px;
+  line-height: 0.8rem;
 }
 
 .doneNumber {

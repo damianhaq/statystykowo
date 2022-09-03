@@ -13,6 +13,7 @@ const weeks = ["pon", "wto", "śro", "czw", "pią", "sob", "nie"];
 const ShowPast = ({ done, events }) => {
   const [doneFilteredByMonth, setDoneFilteredByMonth] = useState([]);
   const [pickMonth, setPickMonth] = useState(new Date().getMonth());
+  const [pickDay, setPickDay] = useState(new Date().getDate());
   // TODO: pick month like below to include year
   // const [pickMonth, setPickMonth] = useState({ month: new Date().getMonth(), year: new Date().getFullYear() });
 
@@ -65,30 +66,31 @@ const ShowPast = ({ done, events }) => {
           ))}
         </div>
         <div className={styles.daysWrapper}>
-          {/* <p>{doneFilteredByMonth[0][0].id}</p> */}
           {doneFilteredByMonth[0] &&
             doneFilteredByMonth[0][0] &&
             doneFilteredByMonth.map((day, index) => (
-              // , gridRowStart: Math.ceil(new Date(day[0].done.date.seconds * 1000).getDate() / 7)
               <div
+                onClick={() => setPickDay(new Date(day[0].done.date.seconds * 1000).getDate())}
                 style={{
                   gridColumnStart: new Date(day[0].done.date.seconds * 1000).getDay() === 0 ? 7 : new Date(day[0].done.date.seconds * 1000).getDay(),
                   gridRowStart: Math.ceil(new Date(day[0].done.date.seconds * 1000).getDate() / 7),
                 }}
                 key={index}
-                className={styles.day}
+                className={new Date(day[0].done.date.seconds * 1000).getDate() === pickDay ? styles.daySelected : styles.day}
               >
                 <p className={styles.dayNumber}>{new Date(day[0].done.date.seconds * 1000).getDate()}</p>
-                {/* <p style={{ fontSize: 10 }}>{(new Date(day[0].done.date.seconds * 1000).getDate() / 7).toFixed(1)}</p>
-                <p style={{ fontSize: 10 }}>{new Date(day[0].done.date.seconds * 1000).getDay() === 0 ? 7 : new Date(day[0].done.date.seconds * 1000).getDay()}</p> */}
                 <p className={styles.doneNumber}>{day.length}</p>
               </div>
             ))}
         </div>
       </div>
-      {/* {doneFilteredByMonth.map((el) => (
-        <ShowPastItem key={el.id} el={el} events={events} />
-      ))} */}
+      <div>
+        {doneFilteredByMonth[0] &&
+          doneFilteredByMonth[0][0] &&
+          doneFilteredByMonth
+            .filter((el, index) => new Date(el[0].done.date.seconds * 1000).getDate() == pickDay)
+            .map((day) => day.map((done) => <p key={done.id}>{done.done.value}</p>))}
+      </div>
     </div>
   );
 };
