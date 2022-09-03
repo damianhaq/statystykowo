@@ -33,14 +33,17 @@ const ShowPast = ({ done, events }) => {
     let index = 0;
 
     for (let i = 0; i < tempArr.length; i++) {
-      if (i !== 0) {
+      if (i === 0) {
+        sortedByDaysTempArr[index].push(tempArr[i]);
+      } else {
         if (new Date(tempArr[i].done.date.seconds * 1000).getDate() === new Date(tempArr[i - 1].done.date.seconds * 1000).getDate()) {
           sortedByDaysTempArr[index].push(tempArr[i]);
         } else {
           index++;
           sortedByDaysTempArr.push([]);
+          sortedByDaysTempArr[index].push(tempArr[i]);
         }
-      } else sortedByDaysTempArr[index].push(tempArr[i]);
+      }
     }
     return sortedByDaysTempArr;
   }
@@ -56,7 +59,9 @@ const ShowPast = ({ done, events }) => {
         </div>
         <div className={styles.weeksWrapper}>
           {weeks.map((el) => (
-            <p className={styles.week}>{el}</p>
+            <p key={el} className={styles.week}>
+              {el}
+            </p>
           ))}
         </div>
         <div className={styles.daysWrapper}>
