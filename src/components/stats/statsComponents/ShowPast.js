@@ -10,7 +10,7 @@ import ShowPastItem from "./showPastComponent/ShowPastItem";
 const months = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
 const weeks = ["pon", "wto", "śro", "czw", "pią", "sob", "nie"];
 
-const ShowPast = ({ done, events }) => {
+const ShowPast = ({ setdetailEvent, done, events }) => {
   const [doneFilteredByMonth, setDoneFilteredByMonth] = useState([]);
   const [pickMonth, setPickMonth] = useState(new Date().getMonth());
   const [pickDay, setPickDay] = useState(new Date().getDate());
@@ -89,7 +89,7 @@ const ShowPast = ({ done, events }) => {
           doneFilteredByMonth[0][0] &&
           doneFilteredByMonth
             .filter((el) => new Date(el[0].done.date.seconds * 1000).getDate() == pickDay)
-            .map((day) => day.map((done) => <ShowPastItem key={done.id} el={done} events={events} />))}
+            .map((day) => day.map((done) => <ShowPastItem setdetailEvent={setdetailEvent} key={done.id} el={done} events={events} />))}
       </div>
     </div>
   );

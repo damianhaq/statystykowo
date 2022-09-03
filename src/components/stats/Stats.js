@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import Disposable from "./statsComponents/Disposable";
 import ShowPast from "./statsComponents/ShowPast";
 import Todo from "./statsComponents/Todo";
+import DetailEvent from "./statsComponents/DetailEvent";
 
 const Stats = ({ done, events }) => {
   const [filteredEventsDaily, setFilteredEventsDaily] = useState([]);
   const [filteredEventsDisposable, setFilteredEventsDisposable] = useState([]);
+  const [detailEvent, setdetailEvent] = useState({});
 
   useEffect(() => {
     // filtered events daily -----
@@ -24,6 +26,7 @@ const Stats = ({ done, events }) => {
     }
     setFilteredEventsDisposable(tempArrDisp);
     // ---------------------
+    console.log("detailEvent: ", detailEvent);
   }, []);
 
   function filterArr(arr, id, timestamp) {
@@ -49,7 +52,11 @@ const Stats = ({ done, events }) => {
     <div>
       <Disposable events={filteredEventsDisposable} />
       <Todo events={filteredEventsDaily} />
-      <ShowPast done={done} events={events} />
+      {Object.keys(detailEvent).length > 0 ? (
+        <DetailEvent setdetailEvent={setdetailEvent} detailEvent={detailEvent} done={done} />
+      ) : (
+        <ShowPast setdetailEvent={setdetailEvent} done={done} events={events} />
+      )}
     </div>
   );
 };

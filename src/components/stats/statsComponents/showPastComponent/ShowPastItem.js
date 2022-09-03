@@ -5,7 +5,7 @@ import { editDocument } from "../../../../functions/editDocument";
 import styles from "./showPastItem.module.css";
 import arrowDownIcon from "../../../../icons/chevron-down-solid.svg";
 
-const ShowPastItem = ({ el, events }) => {
+const ShowPastItem = ({ setdetailEvent, el, events }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [isShowButtons, setIsShowButtons] = useState(false);
   const [value, setValue] = useState(el.done.value);
@@ -34,7 +34,9 @@ const ShowPastItem = ({ el, events }) => {
         <img onClick={showButton} src={arrowDownIcon} className={!isShowButtons ? styles.showOptions : styles.showOptionsExpanded}></img>
 
         <div className={isShowButtons ? styles.buttonsWrapper : styles.buttonsWrapperDisable}>
-          <button className={styles.button}>Szczegóły</button>
+          <button onClick={() => setdetailEvent(events.filter((event) => event.id == el.done.idTemplate)[0])} className={styles.button}>
+            Szczegóły
+          </button>
           <button onClick={handleClickEdit} className={styles.button}>
             {isEditMode ? "Zapisz" : "Edytuj"}
           </button>
