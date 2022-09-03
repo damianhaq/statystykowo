@@ -88,8 +88,8 @@ const ShowPast = ({ done, events }) => {
         {doneFilteredByMonth[0] &&
           doneFilteredByMonth[0][0] &&
           doneFilteredByMonth
-            .filter((el, index) => new Date(el[0].done.date.seconds * 1000).getDate() == pickDay)
-            .map((day) => day.map((done) => <p key={done.id}>{done.done.value}</p>))}
+            .filter((el) => new Date(el[0].done.date.seconds * 1000).getDate() == pickDay)
+            .map((day) => day.map((done) => <ShowPastItem key={done.id} el={done} events={events} />))}
       </div>
     </div>
   );

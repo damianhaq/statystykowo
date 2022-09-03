@@ -18,6 +18,7 @@
 .calendar {
   background-color: #c4c4c4;
   border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 .daysWrapper {
