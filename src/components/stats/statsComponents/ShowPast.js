@@ -49,6 +49,18 @@ const ShowPast = ({ setdetailEvent, done, events }) => {
     return sortedByDaysTempArr;
   }
 
+  function getWeekNumberInMonth(day) {
+    const date = new Date(day[0].done.date.seconds * 1000);
+    let monthStart = new Date(date);
+    monthStart.setDate(0);
+    let offset = ((monthStart.getDay() + 1) % 7) - 1; // -1 is for a week starting on Monday
+    return Math.ceil((date.getDate() + offset) / 7);
+  }
+
+  function getDayInWeek(day) {
+    return new Date(day[0].done.date.seconds * 1000).getDay() === 0 ? 7 : new Date(day[0].done.date.seconds * 1000).getDay();
+  }
+
   return (
     <div className={styles.showPast}>
       <h2>Statystyki</h2>
@@ -72,14 +84,16 @@ const ShowPast = ({ setdetailEvent, done, events }) => {
               <div
                 onClick={() => setPickDay(new Date(day[0].done.date.seconds * 1000).getDate())}
                 style={{
-                  gridColumnStart: new Date(day[0].done.date.seconds * 1000).getDay() === 0 ? 7 : new Date(day[0].done.date.seconds * 1000).getDay(),
-                  gridRowStart: Math.ceil(new Date(day[0].done.date.seconds * 1000).getDate() / 7),
+                  gridColumnStart: getDayInWeek(day),
+                  gridRowStart: getWeekNumberInMonth(day),
                 }}
                 key={index}
                 className={new Date(day[0].done.date.seconds * 1000).getDate() === pickDay ? styles.daySelected : styles.day}
               >
                 <p className={styles.dayNumber}>{new Date(day[0].done.date.seconds * 1000).getDate()}</p>
                 <p className={styles.doneNumber}>{day.length}</p>
+                <p style={{ fontSize: 10 }}>{getDayInWeek(day)}</p>
+                <p style={{ fontSize: 10 }}>{getWeekNumberInMonth(day)}</p>
               </div>
             ))}
         </div>
